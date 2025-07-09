@@ -15,7 +15,7 @@ int main(){
 
     cout << "The number of neighbors of (1,2) is " << s.voisins({1,2}).size() << endl;
 
-    ofstream Fichier("stab_8x8_5.txt");
+    ofstream Fichier("output_stable.txt");
 
     s.stabil();
 
