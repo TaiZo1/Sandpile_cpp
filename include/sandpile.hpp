@@ -6,6 +6,8 @@
 #include <iostream>
 #include <numeric>
 #include <random>
+#include <cassert>
+
 
 
 using upair=std::pair<unsigned, unsigned>;
@@ -56,30 +58,16 @@ class Sandpile{
 
         int stabil();
 
-        int nb_total_ebouls() const{
-            return std::accumulate(nb_ebouls.begin(), nb_ebouls.end(),0);
-        }
+        int nb_total_ebouls() const;
 
-        int add_random_grain(mt19937& G, int k=1){
-            std::uniform_int_distribution<int> Ui(0,m-1);
-            std::uniform_int_distribution<int> Uj(0,n-1);
-
-
-            for(int l = 0; l<k; l++){
-                int i = Ui(G);
-                int j = Uj(G);
-                upair p = upair(i,j);
-                incr_and_test(p);
-            } 
-
-            return stabil();
-        }
+        int add_random_grain(mt19937& G, int k=1);
 
     // friend
 
         friend std::ostream& operator<<(ostream& , const Sandpile&);
 
         friend Sandpile operator+(const Sandpile& S1, const Sandpile& S2){
+            assert(S1.m == S2.m && S1.n == S2.n && "Sandpiles must have the same dimensions");
             int n = S1.n;
             int m = S1.m;
             Sandpile res(m,n,0);
