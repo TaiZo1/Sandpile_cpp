@@ -3,13 +3,13 @@ Sandpile collapse simulation in C++
 
 # Sandpile — Sandpile Collapse Simulation in C++
 
-## 🌋 Overview
+## Overview
 
 This project implements a cellular automaton to simulate the collapse of sandpiles on a 2D grid. Inspired by self-organized criticality (SOC), the model illustrates how simple local rules lead to complex, fractal-like global behavior through toppling (avalanches).
 
 ---
 
-## ⚙️ Features
+## Features
 
 - Customizable 2D grid dimensions and initial height
 - Automatic toppling of unstable cells (height ≥ 4)
@@ -21,7 +21,7 @@ This project implements a cellular automaton to simulate the collapse of sandpil
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 Sandpile_Cpp/
 
