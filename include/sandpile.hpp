@@ -50,47 +50,11 @@ class Sandpile{
 
     // Methods
 
-        std::list<upair> voisins(upair p) const{
-            std::list<upair> res;
-            int i = p.first;
-            int j = p.second;
-            if(j-1>=0){
-                res.push_back(upair(i,j-1));
-            }
-            if(i+1<=m-1){
-                res.push_back(upair(i+1,j));
-            }
-            if(j+1<=n-1){
-                res.push_back(upair(i,j+1));
-            }
-            if(i-1>=0){
-                res.push_back(upair(i-1,j));
-            }
-            return res;
-        }   
+        std::list<upair> voisins(upair p) const;
 
-        void eboul(upair p){
-            if(geth(p)>=4){
-                nb_ebouls[p.first +m*(p.second)]++;
-                seth(p,geth(p)-4);
-                std::list<upair> liste_voisins = voisins(p);
-                for(auto voisin: liste_voisins){
-                    this->incr_and_test(voisin);
-                }
-            }
-        }
+        void eboul(upair p);
 
-        int stabil(){
-            int nb = 0;
-            while(!next_ebouls.empty()){
-                upair p = next_ebouls.front();
-                eboul(p);
-                next_ebouls.pop_front();
-                nb++;
-            }
-
-            return nb;
-        }
+        int stabil();
 
         int nb_total_ebouls() const{
             return std::accumulate(nb_ebouls.begin(), nb_ebouls.end(),0);
