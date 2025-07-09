@@ -20,3 +20,15 @@ This project implements a cellular automaton to simulate the collapse of sandpil
 - Overloaded `+` operator to combine configurations
 
 ---
+
+## 📁 Project Structure
+
+Sandpile_Cpp/
+├── include/
+│ └── sandpile.hpp # Sandpile class declaration
+├── src/
+│ └── sandpile.cpp # Method implementations
+├── test/
+│ └── test_sandpile.cpp # Example usage and output
+├── README.md # Project documentation
+├── .gitignore # Excludes compiled and generated files
