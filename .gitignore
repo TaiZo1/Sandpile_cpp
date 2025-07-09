@@ -1,0 +1,8 @@
+# Fichiers compilés
+sandpile
+
+# Fichiers générés
+*.txt
+
+# Sauvegardes
+*~
