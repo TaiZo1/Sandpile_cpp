@@ -7,13 +7,12 @@
 #include <numeric>
 #include <random>
 
-using namespace std;
 
 using upair=std::pair<unsigned, unsigned>;
 
 class Sandpile;
 
-ostream& operator<<(ostream&, const Sandpile&);
+std::ostream& operator<<(std::ostream&, const Sandpile&);
 Sandpile operator+(const Sandpile&, const Sandpile&);
 
 
@@ -21,9 +20,9 @@ class Sandpile{
     private:
         unsigned m;
         unsigned n;
-        vector<unsigned> terrain;
-        vector<unsigned> nb_ebouls;
-        list<upair> next_ebouls;
+        std::vector<unsigned> terrain;
+        std::vector<unsigned> nb_ebouls;
+        std::list<upair> next_ebouls;
 
         void incr_and_test(upair p){
             seth(p,geth(p)+1);
@@ -35,7 +34,7 @@ class Sandpile{
     public:
         Sandpile(int m0, int n0, int k=4);
 
-    // accesseur
+    // Accessors
 
         unsigned operator()(int i, int j) const{
             return terrain[i+j*m];
@@ -49,10 +48,10 @@ class Sandpile{
             terrain[p.first + (p.second)*m] = k;
         }
 
-    // methodes
+    // Methods
 
-        list<upair> voisins(upair p) const{
-            list<upair> res;
+        std::list<upair> voisins(upair p) const{
+            std::list<upair> res;
             int i = p.first;
             int j = p.second;
             if(j-1>=0){
@@ -74,7 +73,7 @@ class Sandpile{
             if(geth(p)>=4){
                 nb_ebouls[p.first +m*(p.second)]++;
                 seth(p,geth(p)-4);
-                list<upair> liste_voisins = voisins(p);
+                std::list<upair> liste_voisins = voisins(p);
                 for(auto voisin: liste_voisins){
                     this->incr_and_test(voisin);
                 }
@@ -94,7 +93,7 @@ class Sandpile{
         }
 
         int nb_total_ebouls() const{
-            return accumulate(nb_ebouls.begin(), nb_ebouls.end(),0);
+            return std::accumulate(nb_ebouls.begin(), nb_ebouls.end(),0);
         }
 
         int add_random_grain(mt19937& G, int k=1){
@@ -114,7 +113,7 @@ class Sandpile{
 
     // friend
 
-        friend ostream& operator<<(ostream& , const Sandpile&);
+        friend std::ostream& operator<<(ostream& , const Sandpile&);
 
         friend Sandpile operator+(const Sandpile& S1, const Sandpile& S2){
             int n = S1.n;
@@ -126,7 +125,7 @@ class Sandpile{
                 }
             }
             res.stabil();
-            fill(res.nb_ebouls.begin(),res.nb_ebouls.end(),0);
+            std::fill(res.nb_ebouls.begin(),res.nb_ebouls.end(),0);
             return res;
         }
 }; 
