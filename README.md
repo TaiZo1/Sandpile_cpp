@@ -37,7 +37,7 @@ Sandpile_Cpp/
 
 │ └── test_sandpile.cpp # Example usage and output
 
-├── README.md # Project documentation
+├── README.md 
 
-├── .gitignore # Excludes compiled and generated files
+├── .gitignore 
 
