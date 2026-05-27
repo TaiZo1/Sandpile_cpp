@@ -1,7 +1,6 @@
-# Sandpile_cpp
-Sandpile collapse simulation in C++
-
 # Sandpile — Sandpile Collapse Simulation in C++
+
+Sandpile collapse simulation in C++.
 
 ## Overview
 
@@ -23,21 +22,34 @@ This project implements a cellular automaton to simulate the collapse of sandpil
 
 ## Project Structure
 
+```
 Sandpile_Cpp/
-
 ├── include/
-
-│ └── sandpile.hpp # Sandpile class declaration
-
+│   └── sandpile.hpp        # Sandpile class declaration
 ├── src/
-
-│ └── sandpile.cpp # Method implementations
-
+│   └── sandpile.cpp        # Method implementations
 ├── test/
+│   └── test_sandpile.cpp   # Example usage and output
+├── CMakeLists.txt
+├── README.md
+├── LICENSE
+└── .gitignore
+```
 
-│ └── test_sandpile.cpp # Example usage and output
+---
 
-├── README.md 
+## Build
 
-├── .gitignore 
+Requires CMake ≥ 3.15 and a C++17 compiler.
 
+```bash
+cmake -B build
+cmake --build build
+```
+
+Run the example:
+
+```bash
+./build/sandpile_test                 # Linux / macOS
+.\build\Debug\sandpile_test.exe       # Windows (MSVC)
+```

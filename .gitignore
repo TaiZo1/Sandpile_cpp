@@ -3,6 +3,10 @@ sandpile
 
 # Fichiers générés
 *.txt
+!CMakeLists.txt
 
 # Sauvegardes
 *~
+
+# Dossier de build CMake
+build/
